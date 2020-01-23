@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import KeyPadBtn from "./components/KeyPadBtn";
-import Display from "./components/Display";
+import KeyPadBtn from "./components/keyPadBtn/KeyPadBtn";
+import Display from "./components/display/Display";
 
 function App() {
   const [input, setInput] = useState("");
