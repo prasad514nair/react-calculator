@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  height: 4em;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-weight: lighter;
+  font-size: 1.4em;
+  background-color: #fff;
+  color: #0069d9;
+  outline: 1px solid #5a6268;
+}
+.operator {
+  background-color: #d3d3d3;
+  color: #fff;
+  outline: 1px solid #5a6268;
+}
+.evaluator {
+  background-color: #0069d9;
+  color: #fff;
+  outline: 1px solid #5a6268;
+}
