@@ -3,11 +3,13 @@ import "./App.css";
 import KeyPadBtn from "./components/keyPadBtn/KeyPadBtn";
 import Display from "./components/display/Display";
 
+//App Component has two child component Display and KeyPadBtn
+//Functional component using hooks
 function App() {
-  const [input, setInput] = useState("");
-  const [prevInput, setPrevInput] = useState("");
-  const [currentVal, setCurrentVal] = useState("");
-  const [operator, setOperator] = useState("");
+  const [input, setInput] = useState(""); //store current display value
+  const [prevInput, setPrevInput] = useState(""); //store previous input value
+  const [currentVal, setCurrentVal] = useState(""); //store current input value
+  const [operator, setOperator] = useState(""); //store operator value
 
   const addToInput = val => {
     setInput(prev => prev + val);
@@ -17,6 +19,8 @@ function App() {
     setCurrentVal(input);
     console.log("useEffect:", input);
   }, [input]);
+
+  //Handler Functions to handle different Key presses on Calculator
   const addDecimal = val => {
     if (input.indexOf(".") === -1) {
       this.setState({ input: this.state.input + val });
@@ -32,18 +36,6 @@ function App() {
 
   const clearInput = () => {
     setInput("");
-  };
-
-  const evaluate = () => {
-    if (operator === "plus") {
-      setInput(parseInt(prevInput) + parseInt(currentVal));
-    } else if (operator === "subtract") {
-      setInput(parseInt(prevInput) - parseInt(currentVal));
-    } else if (operator === "multiply") {
-      setInput(parseInt(prevInput) * parseInt(currentVal));
-    } else if (operator === "divide") {
-      setInput(parseInt(prevInput) / parseInt(currentVal));
-    }
   };
 
   const add = () => {
@@ -69,7 +61,18 @@ function App() {
     setInput("");
     setOperator("divide");
   };
-
+  //Handler Functions to handle the calculations
+  const evaluate = () => {
+    if (operator === "plus") {
+      setInput(parseInt(prevInput) + parseInt(currentVal));
+    } else if (operator === "subtract") {
+      setInput(parseInt(prevInput) - parseInt(currentVal));
+    } else if (operator === "multiply") {
+      setInput(parseInt(prevInput) * parseInt(currentVal));
+    } else if (operator === "divide") {
+      setInput(parseInt(prevInput) / parseInt(currentVal));
+    }
+  };
   return (
     <div className="App">
       <div className="calc-wrapper">
